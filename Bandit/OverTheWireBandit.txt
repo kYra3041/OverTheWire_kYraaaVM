@@ -1,0 +1,401 @@
+Title : Over The Wire
+subtitle : Bandit
+
+Over The Wire
+The wargames offered by the OverTheWIre community can help you to learn and practice security concepts in the form of fun-filled games.
+~ https://overthewire.org/wargames/
+
+Bandit 
+Game for Beginner
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 00 - DONE
+The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.
+
+The Password is also ~bandit0~
+ssh -p2220 bandit0@bandit.labs.overthewire.org
+--------
+ls -lha
+--------
+readme
+--------
+
+Congratulations on your first steps into the bandit game!!
+Please make sure you have read the rules at https://overthewire.org/rules/
+If you are following a course, workshop, walkthrough or other educational activity,
+please inform the instructor about the rules as well and encourage them to
+contribute to the OverTheWire community so we can keep these games free!
+
+The password you are looking for is: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 01 - DONE
+The password for the next level is stored in a file called - located in the home directory
+
+The password is what we get in previous challenge
+ssh -p2220 bandit1@bandit.labs.overthewire.org
+-------
+ls -lha
+-------
+cat < -
+or
+cat ./ -
+or
+hexdump -C -- -
+or 
+hexdump -
+or 
+hexdump -C -
+-------
+various commands to read the '-' file
+
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 02 - DONE
+The password for the next level is stored in a file called spaces in this filename located in the home directory
+
+ssh -p2220 bandit2@bandit.labs.overthewire.org
+--------
+ls -lha
+--------
+cat spaces\ in\ this\ filename
+or
+cat "spaces in this filename"
+
+---------------
+space mean other category, seperate file name 
+
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 03 - 
+The password for the next level is stored in a hidden file in the inhere directory.
+ssh -p2220 bandit3@bandit.labs.overthewire.org
+---------
+ls -a
+---------
+cat inhere
+--------
+cd inhere
+-------
+ls -a
+------
+cat ...Hiding-From-You
+or
+cat "...Hiding-From-You"
+------
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 04 - DONE
+The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
+
+ssh -p2220 bandit4@bandit.labs.overthewire.org
+--------
+ls
+--------
+cd inhere
+--------
+ls
+ls -lha
+hexdump -C ./-file00
+cat -- * | hexdump -C
+hexdump -C -- ./-file07
+cat -- * | strings
+
+reset if terrminal error
+-------
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 05 - DONE
+The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+human-readable
+1033 bytes in size
+not executable
+
+ssh -p2220 bandit5@bandit.labs.overthewire.org
+----------
+ls
+----------
+cd inhere
+----------
+ls
+----------
+ls -lha
+find . -type f
+----------
+find . -type f ! -executable
+find . -type f ! -executable -size 1033c (c means bytes)
+
+cat ./maybehere07/.file2
+
+--------
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 06 - DONE
+The password for the next level is stored somewhere on the server and has all of the following properties:
+
+owned by user bandit7
+owned by group bandit6
+33 bytes in size
+-----
+ssh -p2220 bandit6@bandit.labs.overthewire.org
+----
+man find
+-----
+pwd
+-----
+cd /
+ls
+
+find / -size 33c -user bandit7 -group bandit6 2>/dev/null
+redirect null to ignore the error and just keep going forward
+cat /var/lib/dpkg/info/bandit7.password
+------
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 07 - DONE
+The password for the next level is stored in the file data.txt next to the word millionth
+
+Commands you may need to solve this level
+man, grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+ssh -p2220 bandit7@bandit.labs.overthewire.org
+----
+ls
+ls -lha
+cat data.txt | grep millionth
+or
+cat data.txt | grep millionth | cut -f2 (f2 to only open the second collumn)
+--------
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 08 - DONE
+The password for the next level is stored in the file data.txt and is the only line of text that occurs only once
+
+Commands you may need to solve this level
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+ssh -p2220 bandit8@bandit.labs.overthewire.org
+
+ls
+ls -lha
+cat data.txt (to check)
+------
+cat data.txt | sort | uniq -c | grep "1 "
+------
+
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 09 - DONE
+The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.
+
+Commands you may need to solve this level
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+ssh -p2220 bandit9@bandit.labs.overthewire.org
+
+ls
+ls -lha
+strings data.txt | grep =
+-----
+
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 10 - DONE
+
+The password for the next level is stored in the file data.txt, which contains base64 encoded data
+
+Commands you may need to solve this level
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+ssh -p2220 bandit10@bandit.labs.overthewire.org
+
+ls
+cat data.txt
+man base64
+
+base64 -d data.txt 
+(
+  -d, --decode
+  decode data
+)
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+logout
+or 
+exit
+or
+ctrl + d
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 11 - DONE
+Level Goal
+The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+ROT13 (Rotate13, "rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the Latin alphabet. 
+
+Commands you may need to solve this level
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+ssh -p2220 bandit11@bandit.labs.overthewire.org
+man tr
+tr - translate or delete characters
+-----
+ls
+cat data.txt
+----
+cat data.txt | tr '[a-z][A-Z]' '[n-za-m]''[N-ZA-M]'
+(
+the N maps to A, the Z maps to M, the A maps to N and the M maps to Z, esentially A through Z
+)
+
+The password is 
+7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+LEVEL 12 - 
+
+Level Goal
+The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
+
+Commands you may need to solve this level
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
+
+ssh -p2220 bandit12@bandit.labs.overthewire.org
+
+ls
+mkdir /tmp/kYraaa
+cp data.txt /tmp/kYraaa
+cd /tmp/kYraaa
+
+(
+use mkdir command to make a directory under the temporary directory
+then copy the data.txt file over to that temp directory
+lastly cd that directory to get started
+)
+
+ls
+bandit12@bandit:/tmp/kYraaa$ file data.txt
+(
+because data.txt: ASCII text
+we use xxd command and put that data into data1
+)
+
+xxd -r data.txt data1
+ls
+bandit12@bandit:/tmp/kYraaa$ file data1
+
+(
+its a gzip compressed data, a form of compression of gzip
+}
+wed want to rename data1 to data2.gzip or .gz
+bandit12@bandit:/tmp/kYraaa$ mv data1 data2.gz
+ls
+
+inspect the file using the command :
+file data2.gz
+
+first g compression using -d command
+bandit12@bandit:/tmp/kYraaa$ gzip -d data2.gz
+ls
+file data2
+
+another type of gzip compression appears
+continue with the same squence of commands
+
+bandit12@bandit:/tmp/kYraaa$ mv data2 data3.bz2
+ls
+
+then we decrypt that data.3
+bandit12@bandit:/tmp/kYraaa$ bzip2 -d data3.bz2 
+ls
+file data3
+------
+mv data3 data4.gz
+ls
+file data4.gz
+bandit12@bandit:/tmp/kYraaa$ gzip -d data4.gz
+ls
+file data4
+--------
+(bcs its in a tar archive, we need to un tar the file using tar command)
+tar -xvf data4
+-------
+file data5.bin
+tar -xvf data5.bin
+ls
+file data6.bin
+-------
+mv data6.bin data7.bz2
+ls
+
+bandit12@bandit:/tmp/kYraaa$ file data7.bz2
+bandit12@bandit:/tmp/kYraaa$ bzip2 -d data7.bz2
+ls
+file data7 
+tar -xvf data7
+---------
+bandit12@bandit:/tmp/kYraaa$ file data8.bin
+bandit12@bandit:/tmp/kYraaa$ mv data8.bin data9.gz
+bandit12@bandit:/tmp/kYraaa$ gzip -d data9.gz
+ls
+bandit12@bandit:/tmp/kYraaa$ file data9
+bandit12@bandit:/tmp/kYraaa$ cat data9
+
+--------
+The password is 
+FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+
+
+
+
+phew level 12 sure is longer than the previous level TAT
+----------------------------------------------------------------------------------------------------------------------------
